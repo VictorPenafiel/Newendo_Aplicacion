@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'content' %}
+<div class="container text-center">
+    <div class="col-12 col-md-6 offset-0 offset-md-3 my-5 mb-4">
+        <h3 class="text-center"><em>
+                Registrarse
+            </em></h3>
+    </div>
+    <div class="my-5">
+        <form action="/register" method="post">
+            {% csrf_token %}
+            {{form.non_field_errors}}
+            <div class="mb-3 text-center">
+                <label for="{{form.username.id_label_tag}}" class="form-label">
+                    {{form.username.label_tag}}
+                </label>
+                <div>
+                    {{form.username}}
+                </div>
+                <div class="text-danger text-center">
+                    {{form.username.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.first_name.id_label_tag}}" class="form-label">
+                    {{form.first_name.label_tag}}
+                </label>
+                <div>
+                    {{form.first_name}}
+                </div>
+                <div class="text-danger text-center">
+                    {{form.first_name.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.last_name.id_label_tag}}" class="form-label">
+                    {{form.last_name.label_tag}}
+                </label>
+                <div>
+                    {{form.last_name}}
+                </div>
+                <div class="text-danger">
+                    {{form.last_name.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.email.id_label_tag}}" class="form-label">
+                    {{form.email.label_tag}}
+                </label>
+                <div>
+                    {{form.email}}
+                </div>
+                <div class="text-danger">
+                    {{form.email.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.password1.id_label_tag}}" class="form-label">
+                    {{form.password1.label_tag}}
+                </label>
+                <div>
+                    {{form.password1}}
+                </div>
+                <div class="text-danger">
+                    {{form.password1.errors}}
+                </div>
+            </div>
+
+            <div class="mb-3 text-center">
+                <label for="{{form.password2.id_label_tag}}" class="form-label">
+                    {{form.password2.label_tag}}
+                </label>
+                <div>
+                    {{form.password2}}
+                </div>
+                <div class="text-danger">
+                    {{form.password2.errors}}
+                </div>
+            </div>
+            <div class="mb-3 text-center">
+                <input class="btn btn-primary" type="submit" value="Enviar">
+            </div>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

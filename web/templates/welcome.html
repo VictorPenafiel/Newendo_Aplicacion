@@ -1,0 +1,135 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block 'content' %}
+<div class="container">
+    <div class="row">
+        <div class="h-100 p-2 text-dark bg-warning rounded-3">
+            <h2>
+                Bienvenido {{ user.get_username }}
+            </h2>
+            <p>
+                Tenemos una lista de productos exclusivos para ti.¿Quieres conocer más?
+            </p>
+            <a href="{% url 'contacto' %}" class="btn btn-outline-dark">
+                Contáctanos
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <hr>
+        {% for tecnologia in private_tecnologias %}
+        <div class="col-6 col-md-3">
+            <div class="card mb-4 bg-light">
+                <img src="{{ tecnologia.image_url }}" class="card-img-top" height="250">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        {{ tecnologia.nombre}}
+                    </h5>
+                    <p>
+                        {{ tecnologia.descripcion }}
+                    </p>
+                    <p>
+                        {{ tecnologia.ver_mas }}
+                    </p>
+                    <div class="accordion accordion-flush" id="accordionFlushExample">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne{{forloop.counter0}}" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Libros
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne{{forloop.counter0}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="grupo-2">
+                                        <b>
+                                            {{tecnologia.nombre_libro_1}}
+                                            <a href="{{tecnologia.libro_1}}">
+                                                Fisio Global 6
+                                            </a>
+                                    </div>
+                                    <div class="grupo-2">
+                                        <b>
+                                            {{tecnologia.nombre_libro_2}}
+                                            <a href="{{tecnologia.libro_2}}">
+                                                Fisio Global 6
+                                            </a>
+                                    </div>
+                                    <div class="grupo-2">
+                                        {{tecnologia.nombre_libro_3}}
+                                        <a href="{{tecnologia.libro_3}}">
+                                            Fisio Global 8
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo{{forloop.counter0}}" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    Paginas de interes
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo{{forloop.counter0}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="grupo-2">
+                                        <a href=" {{tecnologia.libro_1}} ">
+                                            Fisio Global 3
+                                        </a>
+                                    </div>
+                                    <div class="grupo-2">
+                                        <a href=" {{tecnologia.libro_2}} ">
+                                            Fisio Global 6
+                                        </a>
+                                    </div>
+                                    <div class="grupo-2">
+                                        <a href=" {{tecnologia.libro_3}} ">
+                                            Fisio Global 8
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingThree">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseThree{{forloop.counter0}}" aria-expanded="false"
+                                    aria-controls="flush-collapseThree">
+                                    Videos de interes
+                                </button>
+                            </h2>
+                            <div id="flush-collapseThree{{forloop.counter0}}" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="grupo-2">
+                                        <a href=" {{tecnologia.libro_1}} ">
+                                            Fisio Global 3
+                                        </a>
+                                    </div>
+                                    <div class="grupo-2">
+                                        <a href=" {{tecnologia.libro_2}} ">
+                                            Fisio Global 6
+                                        </a>
+                                    </div>
+                                    <div class="grupo-2">
+                                        <a href=" {{tecnologia.libro_3}} ">
+                                            Fisio Global 8
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{%endblock%}

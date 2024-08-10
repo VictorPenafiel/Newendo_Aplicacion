@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'content' %}
+<div style="text-align: center;font-family: 'Poppins';" class="mb-4 mt-4">
+    <h1 class="display-2">
+        Has cerrado sesión
+    </h1>
+    <br>
+    <img src="{% static 'logo.jpg' %}" alt="newendo" width="130" height="130">
+</div>
+
+<div style="text-align: center;" class="mt-4 mb-4">
+    <a href="{% url 'login' %}" class=" btn  text-white"
+        style="background-color: blueviolet; border-color: blueviolet;">
+        Haz clic aquí para acceder a tu cuenta nuevamente
+    </a>
+</div>
+{% endblock %}
